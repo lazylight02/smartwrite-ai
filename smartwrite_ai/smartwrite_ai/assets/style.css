@@ -1,0 +1,182 @@
+/* ============================================================
+   SmartWrite AI — dark glass / neon-green theme
+   ============================================================ */
+
+:root {
+  --bg: #07090a;
+  --bg-elevated: #0d1110;
+  --glass: rgba(255, 255, 255, 0.035);
+  --glass-strong: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(0, 255, 136, 0.16);
+  --accent: #00ff88;
+  --accent-2: #39ff14;
+  --text: #e9fbf1;
+  --text-muted: #8da89c;
+  --radius: 16px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+html, body, [data-testid="stAppViewContainer"], .stApp {
+  background: radial-gradient(circle at 15% 0%, #0c1612 0%, var(--bg) 45%) !important;
+  color: var(--text);
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+
+[data-testid="stHeader"] { background: transparent; }
+
+.main .block-container {
+  max-width: 1040px;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Space Grotesk', 'Inter', sans-serif !important;
+  color: var(--text) !important;
+  letter-spacing: -0.01em;
+}
+
+p, label, span, div { color: var(--text); }
+.stMarkdown, .stCaption, small { color: var(--text-muted); }
+
+/* ---------- Hero ---------- */
+.sw-hero {
+  padding: 2.5rem 0 1.5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 2rem;
+}
+.sw-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+.sw-hero-eyebrow .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px 2px var(--accent);
+}
+.sw-hero h1 {
+  font-size: 2.6rem;
+  line-height: 1.15;
+  font-weight: 700;
+  margin: 0 0 0.9rem 0;
+  max-width: 14ch;
+}
+.sw-hero p {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 54ch;
+  line-height: 1.6;
+}
+
+/* ---------- Feature cards ---------- */
+.sw-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.9rem;
+  margin: 1.6rem 0 2.4rem 0;
+}
+@media (max-width: 900px) {
+  .sw-feature-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.sw-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.1rem 1.2rem 1.1rem;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.sw-card:hover {
+  border-color: rgba(0,255,136,0.4);
+  transform: translateY(-2px);
+}
+.sw-card .icon { font-size: 1.4rem; margin-bottom: 0.55rem; display: block; }
+.sw-card .title { font-weight: 600; font-size: 0.98rem; margin-bottom: 0.3rem; color: var(--text); }
+.sw-card .desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.45; }
+
+/* ---------- Glass panel wrapper for the workspace ---------- */
+.sw-panel {
+  background: var(--glass);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.5rem;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  margin-bottom: 1.2rem;
+}
+
+/* ---------- Streamlit widget restyle ---------- */
+[data-testid="stFileUploaderDropzone"] {
+  background: var(--glass) !important;
+  border: 1.5px dashed rgba(0,255,136,0.35) !important;
+  border-radius: var(--radius) !important;
+}
+[data-testid="stFileUploaderDropzone"] * { color: var(--text-muted) !important; }
+
+.stTabs [data-baseweb="tab-list"] {
+  gap: 4px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.stTabs [data-baseweb="tab"] {
+  color: var(--text-muted);
+  font-weight: 500;
+  padding: 10px 18px;
+}
+.stTabs [aria-selected="true"] {
+  color: var(--accent) !important;
+  border-bottom: 2px solid var(--accent) !important;
+}
+
+.stTextArea textarea {
+  background: var(--bg-elevated) !important;
+  color: var(--text) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  border-radius: 12px !important;
+  font-family: 'Inter', monospace;
+  line-height: 1.6;
+}
+.stTextArea textarea:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 1px var(--accent) !important;
+}
+
+.stButton > button, .stDownloadButton > button {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%) !important;
+  color: #04120a !important;
+  border: none !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  padding: 0.55rem 1.3rem !important;
+  box-shadow: 0 0 18px -4px rgba(0,255,136,0.55);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.stButton > button:hover, .stDownloadButton > button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 24px -2px rgba(0,255,136,0.75);
+}
+
+[data-testid="stMetricValue"] { color: var(--accent) !important; font-family: 'Space Grotesk'; }
+[data-testid="stMetricLabel"] { color: var(--text-muted) !important; }
+
+[data-testid="stSidebar"] {
+  background: var(--bg-elevated) !important;
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+
+.stSelectbox [data-baseweb="select"] > div {
+  background: var(--bg-elevated) !important;
+  border-color: rgba(255,255,255,0.1) !important;
+  color: var(--text) !important;
+}
+
+hr { border-color: rgba(255,255,255,0.08) !important; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: rgba(0,255,136,0.25); border-radius: 8px; }
+::-webkit-scrollbar-track { background: transparent; }

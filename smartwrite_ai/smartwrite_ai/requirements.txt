@@ -1,0 +1,9 @@
+streamlit>=1.38
+pymupdf>=1.24
+pytesseract>=0.3.10
+pillow>=10.0
+pyspellchecker>=0.8
+scikit-learn>=1.4
+networkx>=3.2
+fpdf2>=2.7
+deep-translator>=1.11
